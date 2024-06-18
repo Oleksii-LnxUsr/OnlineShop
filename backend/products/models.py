@@ -3,8 +3,8 @@ from django.db import models
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    category = models.ForeignKey(on_delete=models.PROTECT)
-    brand = models.ForeignKey(on_delete=models.PROTECT)
+    category = models.ForeignKey("Category", on_delete=models.PROTECT)
+    brand = models.ForeignKey("Brand", on_delete=models.PROTECT)
 
     def __str__(self):
         return self.name
@@ -15,7 +15,7 @@ class Product(models.Model):
 
 class Configuration(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    color = models.ForeignKey()
+    color = models.ForeignKey("Color", on_delete=models.PROTECT)
     attributes = models.JSONField()
 
     def __str__(self):
@@ -48,7 +48,7 @@ class Category(models.Model):
 
 class Brand(models.Model):
     name = models.CharField(max_length=50)
-    logo = models.ImageField()
+    logo = models.ImageField(upload_to="media/logos")
 
     def __str__(self):
         return self.name
@@ -58,11 +58,11 @@ class Brand(models.Model):
 
 
 class Image(models.Model):
-    product = models.ForeignKey(Configuration)
-    image = models.ImageField()
+    configuration = models.ForeignKey(Configuration, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="media/products")
 
     def __str__(self):
-        return self.product.name
+        return self.configuration.product.name
 
     class Meta:
         db_table = "image"
