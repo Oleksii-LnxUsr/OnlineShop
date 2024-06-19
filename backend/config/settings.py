@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "orders.apps.OrdersConfig",
     "cart.apps.CartConfig",
+    "django_filters",
 ]
 
 MIDDLEWARE = [
@@ -84,6 +85,13 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+    ],
+}
+
 
 CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:3000", "http://localhost:3000"]
 

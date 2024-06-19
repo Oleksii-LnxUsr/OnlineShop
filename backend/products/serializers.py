@@ -4,7 +4,6 @@ from .models import Product, Configuration, Image, Brand, Color
 
 # List serializers
 
-
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
@@ -37,8 +36,7 @@ class ProductSerializer(serializers.ModelSerializer):
         depth = 2
 
 
-# Retrive serializers
-
+# Detail serializers
 
 class DetailConfigurationSerializer(serializers.ModelSerializer):
     color = ColorSerializer(read_only=True)
