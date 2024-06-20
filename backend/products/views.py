@@ -26,14 +26,21 @@ class ProductDetailView(RetrieveAPIView):
 
 
 class FilterOptionsView(APIView):
-    """Based on the selected filters, it returns parameters available for further filtering"""
+    """
+    API View to get available filters based on the parameters already selected.
+    This view accepts a GET request with filter parameters and returns the available
+    categories, brands and colors for further filtering.
+    """
     def get(self, request, *args, **kwargs):
-        # selected arguments
+        # Get selected filter options from a query
         selected_categories = request.query_params.get("category", None)
         selected_brands = request.query_params.get("brand", None)
         selected_colors = request.query_params.get("color", None)
 
+        # Receive products filtered by selected parameters
         products = get_filtered_products(selected_categories, selected_brands, selected_colors)
+
+        # Get available filters based on filtered products
         response_data = get_available_filters(products)
 
         return Response(response_data)
