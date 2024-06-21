@@ -17,6 +17,7 @@ class Configuration(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     color = models.ForeignKey("Color", on_delete=models.PROTECT)
     attributes = models.JSONField()
+    quantity = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return f"{self.product.name} | {self.color.name}"
