@@ -1,0 +1,19 @@
+.ColorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    margin-right: 2.5px;
+}
+
+.ColorCircle {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.ColorCircle.active {
+    height: 13px;
+    width: 13px;
+}
