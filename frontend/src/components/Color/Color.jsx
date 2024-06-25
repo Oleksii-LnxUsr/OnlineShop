@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import classes from "./Color.module.css";
 
 const Color = ({ color, isActive }) => {
-    console.log(isActive)
     return (
         <Box 
             className={classes.ColorContainer} 

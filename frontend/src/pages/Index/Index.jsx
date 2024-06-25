@@ -1,8 +1,15 @@
 import { Container, Grid, Box } from '@mui/material';
 import ProductCard from "../../components/ProductCard/ProductCard"
 import classes from "./Index.module.css"
+import getProducts from '../../api/GetProducts';
+import { useEffect, useState } from 'react';
 
 const Index = () => {
+    const [data, setData] = useState()
+    useEffect(() => {
+        getProducts(setData)
+    }, [])
+
     return(
         <Container maxWidth="lg" sx={{ marginTop: "10px" }}>
             <Grid container>
@@ -15,15 +22,11 @@ const Index = () => {
                     </Grid>
                 </Grid>
                 <Grid container item lg={9} md={9}>
-                    <Grid item lg={4} md={4}>
-                        <ProductCard />
-                    </Grid>
-                    <Grid item lg={4} md={4}>
-                        <ProductCard />
-                    </Grid>
-                    <Grid item lg={4} md={4}>
-                        <ProductCard />
-                    </Grid>
+                    {data?.map((product, index) => (
+                        <Grid item lg={4} md={4} key={index}>
+                            <ProductCard product={product} />
+                        </Grid>
+                    ))}
                 </Grid>
             </Grid>
         </Container>
