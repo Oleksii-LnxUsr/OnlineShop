@@ -6,17 +6,16 @@ const ProductCard = (product) => {
     return(
         <div className={classes.ProductCard}>
             <img 
-                draggable={false} 
-                src={phoneImg} 
-                alt="phone img"
+                draggable={false}
+                src={phoneImg}
+                alt={product?.product?.name}
                 className={classes.ProductImage} />
-            <p>{product?.product?.name}</p>
+            <p className={classes.ProductName}>{product?.product?.name}</p>
             <div className={classes.ProductColors}>
-                {product.product.configuration?.map((configuration, index) => (
+                {product?.product?.configuration?.map((configuration, index) => (
                     <Color color={configuration?.color?.hex_code} key={index} />
                 ))}
             </div>
-            <p>200$</p>
         </div>
     )
 }

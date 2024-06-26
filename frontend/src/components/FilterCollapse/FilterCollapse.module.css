@@ -1,0 +1,29 @@
+
+
+.FilterButton {
+    background: white!important;
+    border-radius: 5px!important;
+    height: 50px!important;
+    text-align: center!important;
+    margin-bottom: 5px!important;
+}
+
+.FilterButtonText span {
+    font-size: 16px!important;
+    font-weight: 300!important;
+}
+
+.FilterItem {
+    margin-left: 5px!important;
+    background: white!important;
+    border-radius: 10px!important;
+    padding-right: 15px!important;
+    user-select: none;
+}
+
+.FilterColor {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 2px 0px rgba(0,0,0,0.75);
+}

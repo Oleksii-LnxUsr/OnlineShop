@@ -19,3 +19,7 @@
 .ProductColors {
     display: flex;
 }
+
+.ProductName {
+    margin-bottom: 3px;
+}
