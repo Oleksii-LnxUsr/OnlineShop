@@ -6,7 +6,6 @@ const getAvailableFilters = (setData) => {
   axios.get(`${BASE_URL}products/filters/`)
     .then(response => {
       setData(response.data)
-      console.log(response.data)
     })
     .catch(error => {
       console.log(error)
